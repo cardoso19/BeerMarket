@@ -37,6 +37,10 @@
 		AF37232022CAC03B00E21862 /* BeerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37231522CAC03B00E21862 /* BeerDetailViewController.swift */; };
 		AF37232122CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37231622CAC03B00E21862 /* BeerDetailInteractor.swift */; };
 		AF37232222CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37231622CAC03B00E21862 /* BeerDetailInteractor.swift */; };
+		AF37232A22CAC78F00E21862 /* ConnectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232922CAC78F00E21862 /* ConnectionUtil.swift */; };
+		AF37232B22CAC78F00E21862 /* ConnectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232922CAC78F00E21862 /* ConnectionUtil.swift */; };
+		AF37232D22CAC86F00E21862 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232C22CAC86F00E21862 /* ErrorString.swift */; };
+		AF37232E22CAC86F00E21862 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232C22CAC86F00E21862 /* ErrorString.swift */; };
 		F3D8654EF2CF54611A86D91E /* Pods_BeerMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E29511E0A3E57F31E6A9A /* Pods_BeerMarket.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +79,8 @@
 		AF37231422CAC03B00E21862 /* BeerDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailModels.swift; sourceTree = "<group>"; };
 		AF37231522CAC03B00E21862 /* BeerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailViewController.swift; sourceTree = "<group>"; };
 		AF37231622CAC03B00E21862 /* BeerDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailInteractor.swift; sourceTree = "<group>"; };
+		AF37232922CAC78F00E21862 /* ConnectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUtil.swift; sourceTree = "<group>"; };
+		AF37232C22CAC86F00E21862 /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
 		D576926B5F6B452628CA940F /* Pods-BeerMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerMarketTests.release.xcconfig"; path = "Target Support Files/Pods-BeerMarketTests/Pods-BeerMarketTests.release.xcconfig"; sourceTree = "<group>"; };
 		F82BC3AADF3517A7993F09AA /* Pods-BeerMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerMarket.release.xcconfig"; path = "Target Support Files/Pods-BeerMarket/Pods-BeerMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC38FBA208BA675DCD192A7D /* Pods_BeerMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +138,8 @@
 		AF3722D922CABC8700E21862 /* BeerMarket */ = {
 			isa = PBXGroup;
 			children = (
-				AF37232322CAC05C00E21862 /* Business */,
+				AF37232722CAC77100E21862 /* Util */,
+				AF37232422CAC06D00E21862 /* Models */,
 				AF3722FC22CABF8600E21862 /* Scenes */,
 				AF3722FA22CABF4600E21862 /* Views */,
 				AF3722DA22CABC8800E21862 /* AppDelegate.swift */,
@@ -204,27 +211,12 @@
 			path = BeerDetail;
 			sourceTree = "<group>";
 		};
-		AF37232322CAC05C00E21862 /* Business */ = {
-			isa = PBXGroup;
-			children = (
-				AF37232522CAC07100E21862 /* Service */,
-				AF37232422CAC06D00E21862 /* Models */,
-			);
-			path = Business;
-			sourceTree = "<group>";
-		};
 		AF37232422CAC06D00E21862 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AF37232C22CAC86F00E21862 /* ErrorString.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		AF37232522CAC07100E21862 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		AF37232622CAC09600E21862 /* TableViewCells */ = {
@@ -232,6 +224,14 @@
 			children = (
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		AF37232722CAC77100E21862 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				AF37232922CAC78F00E21862 /* ConnectionUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		C3EE28DDDDD9CD4EB36C0796 /* Pods */ = {
@@ -424,6 +424,7 @@
 				AF37230A22CABFB400E21862 /* BeerListModels.swift in Sources */,
 				AF37230C22CABFB400E21862 /* BeerListViewController.swift in Sources */,
 				AF37230422CABFB400E21862 /* BeerListPresenter.swift in Sources */,
+				AF37232D22CAC86F00E21862 /* ErrorString.swift in Sources */,
 				AF37232122CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */,
 				AF37231922CAC03B00E21862 /* BeerDetailWorker.swift in Sources */,
 				AF3722DB22CABC8800E21862 /* AppDelegate.swift in Sources */,
@@ -431,6 +432,7 @@
 				AF37230622CABFB400E21862 /* BeerListWorker.swift in Sources */,
 				AF37230822CABFB400E21862 /* BeerListRouter.swift in Sources */,
 				AF37231B22CAC03B00E21862 /* BeerDetailRouter.swift in Sources */,
+				AF37232A22CAC78F00E21862 /* ConnectionUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +446,7 @@
 				AF37230D22CABFB400E21862 /* BeerListViewController.swift in Sources */,
 				AF37230522CABFB400E21862 /* BeerListPresenter.swift in Sources */,
 				AF37230722CABFB400E21862 /* BeerListWorker.swift in Sources */,
+				AF37232E22CAC86F00E21862 /* ErrorString.swift in Sources */,
 				AF37232222CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */,
 				AF37231A22CAC03B00E21862 /* BeerDetailWorker.swift in Sources */,
 				AF37230922CABFB400E21862 /* BeerListRouter.swift in Sources */,
@@ -451,6 +454,7 @@
 				AF3722F022CABC8900E21862 /* BeerMarketTests.swift in Sources */,
 				AF37230B22CABFB400E21862 /* BeerListModels.swift in Sources */,
 				AF37231C22CAC03B00E21862 /* BeerDetailRouter.swift in Sources */,
+				AF37232B22CAC78F00E21862 /* ConnectionUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

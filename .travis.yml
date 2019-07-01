@@ -1,0 +1,9 @@
+os: osx
+osx_image: xcode10.2
+language: swift
+xcode_workspace: BeerMarket.xcworkspace
+xcode_scheme: BeerMarket
+xcode_sdk: iphonesimulator12.2
+
+before_install:
+  - pod repo update

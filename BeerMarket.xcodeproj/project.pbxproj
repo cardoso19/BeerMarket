@@ -41,6 +41,12 @@
 		AF37232B22CAC78F00E21862 /* ConnectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232922CAC78F00E21862 /* ConnectionUtil.swift */; };
 		AF37232D22CAC86F00E21862 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232C22CAC86F00E21862 /* ErrorString.swift */; };
 		AF37232E22CAC86F00E21862 /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37232C22CAC86F00E21862 /* ErrorString.swift */; };
+		AF37233322CACB9900E21862 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233222CACB9900E21862 /* Beer.swift */; };
+		AF37233422CACB9900E21862 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233222CACB9900E21862 /* Beer.swift */; };
+		AF37233722CACC1C00E21862 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233622CACC1C00E21862 /* Identifier.swift */; };
+		AF37233822CACC1C00E21862 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233622CACC1C00E21862 /* Identifier.swift */; };
+		AF37233A22CACC4A00E21862 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233922CACC4A00E21862 /* Name.swift */; };
+		AF37233B22CACC4A00E21862 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF37233922CACC4A00E21862 /* Name.swift */; };
 		F3D8654EF2CF54611A86D91E /* Pods_BeerMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3E29511E0A3E57F31E6A9A /* Pods_BeerMarket.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +87,9 @@
 		AF37231622CAC03B00E21862 /* BeerDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailInteractor.swift; sourceTree = "<group>"; };
 		AF37232922CAC78F00E21862 /* ConnectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUtil.swift; sourceTree = "<group>"; };
 		AF37232C22CAC86F00E21862 /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
+		AF37233222CACB9900E21862 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		AF37233622CACC1C00E21862 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		AF37233922CACC4A00E21862 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		D576926B5F6B452628CA940F /* Pods-BeerMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerMarketTests.release.xcconfig"; path = "Target Support Files/Pods-BeerMarketTests/Pods-BeerMarketTests.release.xcconfig"; sourceTree = "<group>"; };
 		F82BC3AADF3517A7993F09AA /* Pods-BeerMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerMarket.release.xcconfig"; path = "Target Support Files/Pods-BeerMarket/Pods-BeerMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC38FBA208BA675DCD192A7D /* Pods_BeerMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,13 +147,13 @@
 		AF3722D922CABC8700E21862 /* BeerMarket */ = {
 			isa = PBXGroup;
 			children = (
-				AF37232722CAC77100E21862 /* Util */,
-				AF37232422CAC06D00E21862 /* Models */,
-				AF3722FC22CABF8600E21862 /* Scenes */,
-				AF3722FA22CABF4600E21862 /* Views */,
+				AF3722E622CABC8900E21862 /* Info.plist */,
 				AF3722DA22CABC8800E21862 /* AppDelegate.swift */,
 				AF3722E122CABC8900E21862 /* Assets.xcassets */,
-				AF3722E622CABC8900E21862 /* Info.plist */,
+				AF37232422CAC06D00E21862 /* Models */,
+				AF3722FC22CABF8600E21862 /* Scenes */,
+				AF37232722CAC77100E21862 /* Util */,
+				AF3722FA22CABF4600E21862 /* Views */,
 			);
 			path = BeerMarket;
 			sourceTree = "<group>";
@@ -214,7 +223,9 @@
 		AF37232422CAC06D00E21862 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AF37233222CACB9900E21862 /* Beer.swift */,
 				AF37232C22CAC86F00E21862 /* ErrorString.swift */,
+				AF37233522CACC0100E21862 /* PhatomModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +243,15 @@
 				AF37232922CAC78F00E21862 /* ConnectionUtil.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		AF37233522CACC0100E21862 /* PhatomModels */ = {
+			isa = PBXGroup;
+			children = (
+				AF37233622CACC1C00E21862 /* Identifier.swift */,
+				AF37233922CACC4A00E21862 /* Name.swift */,
+			);
+			path = PhatomModels;
 			sourceTree = "<group>";
 		};
 		C3EE28DDDDD9CD4EB36C0796 /* Pods */ = {
@@ -421,8 +441,10 @@
 				AF37231D22CAC03B00E21862 /* BeerDetailModels.swift in Sources */,
 				AF37231F22CAC03B00E21862 /* BeerDetailViewController.swift in Sources */,
 				AF37230E22CABFB400E21862 /* BeerListInteractor.swift in Sources */,
+				AF37233322CACB9900E21862 /* Beer.swift in Sources */,
 				AF37230A22CABFB400E21862 /* BeerListModels.swift in Sources */,
 				AF37230C22CABFB400E21862 /* BeerListViewController.swift in Sources */,
+				AF37233A22CACC4A00E21862 /* Name.swift in Sources */,
 				AF37230422CABFB400E21862 /* BeerListPresenter.swift in Sources */,
 				AF37232D22CAC86F00E21862 /* ErrorString.swift in Sources */,
 				AF37232122CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */,
@@ -431,6 +453,7 @@
 				AF37231722CAC03B00E21862 /* BeerDetailPresenter.swift in Sources */,
 				AF37230622CABFB400E21862 /* BeerListWorker.swift in Sources */,
 				AF37230822CABFB400E21862 /* BeerListRouter.swift in Sources */,
+				AF37233722CACC1C00E21862 /* Identifier.swift in Sources */,
 				AF37231B22CAC03B00E21862 /* BeerDetailRouter.swift in Sources */,
 				AF37232A22CAC78F00E21862 /* ConnectionUtil.swift in Sources */,
 			);
@@ -443,8 +466,10 @@
 				AF37231E22CAC03B00E21862 /* BeerDetailModels.swift in Sources */,
 				AF37232022CAC03B00E21862 /* BeerDetailViewController.swift in Sources */,
 				AF37230F22CABFB400E21862 /* BeerListInteractor.swift in Sources */,
+				AF37233422CACB9900E21862 /* Beer.swift in Sources */,
 				AF37230D22CABFB400E21862 /* BeerListViewController.swift in Sources */,
 				AF37230522CABFB400E21862 /* BeerListPresenter.swift in Sources */,
+				AF37233B22CACC4A00E21862 /* Name.swift in Sources */,
 				AF37230722CABFB400E21862 /* BeerListWorker.swift in Sources */,
 				AF37232E22CAC86F00E21862 /* ErrorString.swift in Sources */,
 				AF37232222CAC03B00E21862 /* BeerDetailInteractor.swift in Sources */,
@@ -453,6 +478,7 @@
 				AF37231822CAC03B00E21862 /* BeerDetailPresenter.swift in Sources */,
 				AF3722F022CABC8900E21862 /* BeerMarketTests.swift in Sources */,
 				AF37230B22CABFB400E21862 /* BeerListModels.swift in Sources */,
+				AF37233822CACC1C00E21862 /* Identifier.swift in Sources */,
 				AF37231C22CAC03B00E21862 /* BeerDetailRouter.swift in Sources */,
 				AF37232B22CAC78F00E21862 /* ConnectionUtil.swift in Sources */,
 			);

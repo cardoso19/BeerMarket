@@ -11,10 +11,21 @@
 //
 
 import UIKit
+import Alamofire
 
 class BeerListWorker {
     
-    func doSomeWork() {
-        
+    func requestBeerList(request: BeerList.BeerModel.Request, completion: @escaping (_ result: Result<Array<Beer>>) -> Void) {
+        ConnectionUtil.request(on: "beers",
+                               method: .get,
+                               parameters: ["page": request.page]) { (result: Result<Array<Beer>>) in
+                                completion(result)
+        }
+    }
+    
+    func requestImage(request: BeerList.Image.Request, completion: @escaping (_ result: Result<UIImage>) -> Void) {
+        ConnectionUtil.downloadImage(on: request.url) { (result: Result<UIImage>) in
+            completion(result)
+        }
     }
 }

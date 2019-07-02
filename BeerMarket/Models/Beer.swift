@@ -15,7 +15,7 @@ struct Beer: Codable {
     let imageURL: String
     let alcoholByVolume: Double
     let tagline: String
-    let bitterness: Int
+    let bitterness: Double?
     let description: String
     
     enum CodingKeys: String, CodingKey {

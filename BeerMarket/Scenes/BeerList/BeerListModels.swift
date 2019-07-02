@@ -14,16 +14,51 @@ import UIKit
 
 enum BeerList {
     
-    // MARK: - Use Cases
-    enum Something {
+    enum BeerModel {
         struct Request {
-            
+            let page: Int
         }
         struct Response {
-            
+            let newBeers: [Beer]
         }
         struct ViewModel {
+            struct DecribedBeer {
+                let name: String
+                let alcoholByVolume: String
+                let imageURL: String
+            }
             
+            let beers: [DecribedBeer]
+        }
+    }
+    
+    enum Selection {
+        struct Request {
+            let row: Int
+        }
+    }
+    
+    enum Image {
+        struct Request {
+            let row: Int
+            let url: String
+        }
+        struct Response {
+            let row: Int
+            let image: UIImage
+        }
+        struct ViewModel {
+            let row: Int
+            let image: UIImage
+        }
+    }
+    
+    enum ErrorModel {
+        struct Response {
+            let error: Error
+        }
+        struct ViewModel {
+            let error: String
         }
     }
 }

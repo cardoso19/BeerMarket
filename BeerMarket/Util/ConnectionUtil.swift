@@ -13,9 +13,9 @@ class ConnectionUtil {
     static let baseURL: String = "https://api.punkapi.com/v2/"
     
     static func request<T: Codable>(on endPoint: String, method: HTTPMethod, parameters: Parameters, completion: @escaping (_ result: Result<T>) -> Void) {
-        Alamofire.SessionManager.default.request(baseURL + endPoint,
-                                                 method: method,
-                                                 parameters: parameters)
+        Alamofire.SessionManager.default.requestWithoutCache(baseURL + endPoint,
+                                                             method: method,
+                                                             parameters: parameters)
             .responseJSON { response in
                 if let error = response.error {
                     completion(.failure(error))

@@ -13,16 +13,20 @@
 import UIKit
 
 protocol BeerListDisplayLogic: class {
-    func displaySomething(viewModel: BeerList.Something.ViewModel)
+    func displayBeer(viewModel: BeerList.BeerModel.ViewModel)
+    func displayImage(viewModel: BeerList.Image.ViewModel)
+    func displayError(viewModel: BeerList.ErrorModel.ViewModel)
 }
 
 class BeerListViewController: UIViewController {
     
     // MARK: - IBOutlets
+    @IBOutlet weak var tableViewContent: UITableView!
     
     // MARK: - Variables
     var interactor: BeerListBusinessLogic?
     var router: (NSObjectProtocol & BeerListRoutingLogic & BeerListDataPassing)?
+    var beers: [BeerList.BeerModel.ViewModel.DecribedBeer] = []
     
     // MARK: - Object Life Cycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -62,20 +66,54 @@ class BeerListViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        tableViewContent.register(UINib(nibName: "BeerTableViewCell", bundle: nil), forCellReuseIdentifier: "Beer")
+        tableViewContent.rowHeight = 100
+        doBeerList()
     }
     
-    // MARK: - Do something
-    func doSomething() {
-        let request = BeerList.Something.Request()
-        interactor?.doSomething(request: request)
+    // MARK: - Beer
+    func doBeerList() {
+        interactor?.doBeerList()
     }
 }
 
 // MARK: - BeerListDisplayLogic
 extension BeerListViewController: BeerListDisplayLogic {
     
-    func displaySomething(viewModel: BeerList.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayBeer(viewModel: BeerList.BeerModel.ViewModel) {
+        beers.append(contentsOf: viewModel.beers)
+        tableViewContent.reloadData()
+    }
+    
+    func displayImage(viewModel: BeerList.Image.ViewModel) {
+        DispatchQueue.main.sync {
+            guard let cell = tableViewContent.cellForRow(at: IndexPath(row: viewModel.row, section: 0)) as? BeerTableViewCell else { return }
+            cell.imageViewIcon.image = viewModel.image
+        }
+    }
+    
+    func displayError(viewModel: BeerList.ErrorModel.ViewModel) {
+        DispatchQueue.main.sync {
+            //TODO: Show error in an alert.
+            debugPrint(viewModel.error)
+        }
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension BeerListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return beers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Beer") as? BeerTableViewCell else { return UITableViewCell() }
+        let rowBeer = beers[indexPath.row]
+        cell.labelName.text = rowBeer.name
+        cell.labelAlcoholByVolume.text = rowBeer.alcoholByVolume
+        cell.imageViewIcon.image = UIImage(named: "unkownBeer")
+        interactor?.doImage(request: BeerList.Image.Request(row: indexPath.row, url: rowBeer.imageURL))
+        return cell
     }
 }

@@ -13,7 +13,9 @@
 import UIKit
 
 protocol BeerListPresentationLogic {
-    func presentSomething(response: BeerList.Something.Response)
+    func presentBeers(response: BeerList.BeerModel.Response)
+    func presentImage(response: BeerList.Image.Response)
+    func presentError(response: BeerList.ErrorModel.Response)
 }
 
 class BeerListPresenter: BeerListPresentationLogic {
@@ -21,9 +23,33 @@ class BeerListPresenter: BeerListPresentationLogic {
     // MARK: - Variables
     weak var viewController: BeerListDisplayLogic?
     
-    // MARK: - Do something
-    func presentSomething(response: BeerList.Something.Response) {
-        let viewModel = BeerList.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    //MARK: - Formatter
+    private func format(percentage: Double) -> String {
+        return String(format: "%.1f", percentage) + "%"
+    }
+    
+    // MARK: - Beer
+    func presentBeers(response: BeerList.BeerModel.Response) {
+        var describedBeers: [BeerList.BeerModel.ViewModel.DecribedBeer] = []
+        for beer in response.newBeers {
+            let newDescribedBeer = BeerList.BeerModel.ViewModel.DecribedBeer(name: beer.name.value,
+                                                                             alcoholByVolume: format(percentage: beer.alcoholByVolume),
+                                                                             imageURL: beer.imageURL)
+            describedBeers.append(newDescribedBeer)
+        }
+        let viewModel = BeerList.BeerModel.ViewModel(beers: describedBeers)
+        viewController?.displayBeer(viewModel: viewModel)
+    }
+    
+    //MARK: - Image
+    func presentImage(response: BeerList.Image.Response) {
+        let viewModel = BeerList.Image.ViewModel(row: response.row, image: response.image)
+        viewController?.displayImage(viewModel: viewModel)
+    }
+    
+    //MARK: - Error {
+    func presentError(response: BeerList.ErrorModel.Response) {
+        let viewModel = BeerList.ErrorModel.ViewModel(error: response.error.localizedDescription)
+        viewController?.displayError(viewModel: viewModel)
     }
 }
